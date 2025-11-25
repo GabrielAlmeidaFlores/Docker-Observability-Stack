@@ -86,14 +86,35 @@ The default Grafana password is defined in `docker-compose.yml` through the `GF_
 ### Dashboards
 
 The project includes two pre-configured dashboards in the `dashboards/` folder:
-- **Docker Monitoring**: Monitors containers, CPU usage, memory, and network
-- **Host Monitoring**: Monitors host system metrics (CPU, memory, disk, network)
 
 #### Docker Monitoring Dashboard
 ![Docker Monitoring Dashboard](https://raw.githubusercontent.com/GabrielAlmeidaFlores/GabrielAlmeidaFlores/refs/heads/main/assets/Docker-Observability-Stack/Docker%20Monitoring%20Dashboard.png)
 
+**Available metrics:**
+- **Running Containers** - Total number of active containers
+- **Total Docker Containers Memory Usage** - Aggregated memory consumption across all containers
+- **Total Docker Containers CPU Usage** - Aggregated CPU usage across all containers
+- **Docker Containers Memory Usage** - Time series graph showing memory usage per container
+- **Docker Containers CPU Usage** - Time series graph showing CPU usage per container
+- **Docker Containers Disk I/O** - Read/write operations per container
+- **Docker Containers Network Throughput** - Network receive/transmit bandwidth per container
+- **Docker Container Memory Reservation Usage** - Table showing memory usage against limits
+- **Docker Container Memory Usage** - Table with current memory consumption per container
+
 #### Host Monitoring Dashboard
 ![Host Monitoring Dashboard](https://raw.githubusercontent.com/GabrielAlmeidaFlores/GabrielAlmeidaFlores/refs/heads/main/assets/Docker-Observability-Stack/Host%20Monitoring%20Dashboard.png)
+
+**Available metrics:**
+- **Host Uptime** - System uptime in seconds
+- **Memory Usage** - Current percentage of memory in use
+- **CPU Usage** - Current percentage of CPU utilization
+- **Disk Space** - Percentage of disk space used on root filesystem
+- **CPU Usage History** - Time series graph of CPU utilization over time
+- **Top Processes by CPU Usage** - Configurable top-k processes consuming CPU
+- **Memory Usage History** - Time series graph of memory consumption over time
+- **Top Processes by Memory Usage** - Configurable top-k processes consuming memory
+- **Disk IOPS** - Input/output operations per second (read/write)
+- **Network Throughput** - Network bandwidth usage (download/upload)
 
 To import dashboards into Grafana:
 1. Access Grafana
