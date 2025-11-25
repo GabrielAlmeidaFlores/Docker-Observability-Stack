@@ -89,6 +89,12 @@ The project includes two pre-configured dashboards in the `dashboards/` folder:
 - **Docker Monitoring**: Monitors containers, CPU usage, memory, and network
 - **Host Monitoring**: Monitors host system metrics (CPU, memory, disk, network)
 
+#### Docker Monitoring Dashboard
+![Docker Monitoring Dashboard](https://raw.githubusercontent.com/GabrielAlmeidaFlores/GabrielAlmeidaFlores/refs/heads/main/assets/Docker-Observability-Stack/Docker%20Monitoring%20Dashboard.png)
+
+#### Host Monitoring Dashboard
+![Host Monitoring Dashboard](https://raw.githubusercontent.com/GabrielAlmeidaFlores/GabrielAlmeidaFlores/refs/heads/main/assets/Docker-Observability-Stack/Host%20Monitoring%20Dashboard.png)
+
 To import dashboards into Grafana:
 1. Access Grafana
 2. Go to **Dashboards** → **Import**
