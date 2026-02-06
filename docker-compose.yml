@@ -13,7 +13,7 @@ services:
       - "9090"
     networks:
       monitoring:
-        ipv4_address: 172.25.0.10
+        ipv4_address: 172.45.0.10
 
   node-exporter:
     image: prom/node-exporter:latest
@@ -31,7 +31,7 @@ services:
       - "9100"
     networks:
       monitoring:
-        ipv4_address: 172.25.0.11
+        ipv4_address: 172.45.0.11
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
@@ -51,7 +51,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       monitoring:
-        ipv4_address: 172.25.0.12
+        ipv4_address: 172.45.0.12
 
   grafana:
     image: grafana/grafana:latest
@@ -66,22 +66,25 @@ services:
       - GF_USERS_ALLOW_SIGN_UP=false
     networks:
       monitoring:
-        ipv4_address: 172.25.0.13
+        ipv4_address: 172.45.0.13
 
   process-exporter:
     image: ncabatoff/process-exporter:latest
     container_name: monitoring_process_exporter
     restart: unless-stopped
+    privileged: true
     pid: host
     volumes:
       - ./data/process-exporter/config:/config
+      - /proc:/host/proc:ro
     command:
       - "--config.path=/config/process-exporter.yml"
+      - "--procfs=/host/proc"
     expose:
-      - "9256"
+      - ".45."
     networks:
       monitoring:
-        ipv4_address: 172.25.0.14
+        ipv4_address: 172.45.0.14
 
 volumes:
   prometheus_data:
@@ -93,5 +96,5 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 172.25.0.0/24
-          gateway: 172.25.0.1
+        - subnet: 172.45.0.0/24
+          gateway: 172.45.0.1
