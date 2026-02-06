@@ -1,7 +1,7 @@
 {
   "__inputs": [
     {
-      "name": "DS_PROMETHEUSR",
+      "name": "DS_OUSION_DEV SERVER",
       "label": "prometheus",
       "description": "",
       "type": "datasource",
@@ -55,13 +55,12 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
   "links": [],
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUSR}"
+        "uid": "${DS_OUSION_DEV SERVER}"
       },
       "fieldConfig": {
         "defaults": {
@@ -116,7 +115,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "time() - node_boot_time_seconds",
@@ -131,7 +130,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUSR}"
+        "uid": "${DS_OUSION_DEV SERVER}"
       },
       "fieldConfig": {
         "defaults": {
@@ -185,7 +184,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "100 * (1 - (\n  node_memory_MemAvailable_bytes{instance=\"node-exporter:9100\"}\n  /\n  node_memory_MemTotal_bytes{instance=\"node-exporter:9100\"}\n))\n",
@@ -200,7 +199,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUSR}"
+        "uid": "${DS_OUSION_DEV SERVER}"
       },
       "fieldConfig": {
         "defaults": {
@@ -254,7 +253,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "100 * (\n  1 -\n  (\n    sum(rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) \n    /\n    sum(rate(node_cpu_seconds_total[5m]))\n  )\n)\n",
@@ -269,7 +268,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUSR}"
+        "uid": "${DS_OUSION_DEV SERVER}"
       },
       "fieldConfig": {
         "defaults": {
@@ -323,7 +322,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "100 *\n(\n  1 -\n  node_filesystem_free_bytes{mountpoint=\"/\", fstype!~\"tmpfs|overlay\"}\n  /\n  node_filesystem_size_bytes{mountpoint=\"/\", fstype!~\"tmpfs|overlay\"}\n)\n",
@@ -338,7 +337,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUSR}"
+        "uid": "${DS_OUSION_DEV SERVER}"
       },
       "fieldConfig": {
         "defaults": {
@@ -422,7 +421,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "100 * (1 - avg(rate(node_cpu_seconds_total{mode=\"idle\"}[$interval])))",
@@ -437,7 +436,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUSR}"
+        "uid": "${DS_OUSION_DEV SERVER}"
       },
       "fieldConfig": {
         "defaults": {
@@ -521,7 +520,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "topk(\n  $top_processes_count,\n  sum by (groupname) (rate(namedprocess_namegroup_cpu_seconds_total[$interval])) * 100\n  / scalar(count(node_cpu_seconds_total{mode=\"idle\"}))\n)\n",
@@ -536,7 +535,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUSR}"
+        "uid": "${DS_OUSION_DEV SERVER}"
       },
       "fieldConfig": {
         "defaults": {
@@ -620,7 +619,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "100 * (\n  1 -\n  (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)\n)\n",
@@ -635,7 +634,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUSR}"
+        "uid": "${DS_OUSION_DEV SERVER}"
       },
       "fieldConfig": {
         "defaults": {
@@ -719,7 +718,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "topk(\n  $top_processes_count,\n  namedprocess_namegroup_memory_bytes{memtype=\"resident\"} * 100\n    / scalar(node_memory_MemTotal_bytes)\n)\n",
@@ -734,7 +733,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUSR}"
+        "uid": "${DS_OUSION_DEV SERVER}"
       },
       "fieldConfig": {
         "defaults": {
@@ -814,7 +813,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "rate(node_disk_reads_completed_total[$interval])",
@@ -825,7 +824,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "rate(node_disk_writes_completed_total[$interval])",
@@ -842,7 +841,116 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUSR}"
+        "uid": "${DS_OUSION_DEV SERVER}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "ops"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 27
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_OUSION_DEV SERVER}"
+          },
+          "editorMode": "code",
+          "expr": "topk($top_processes_count, sum by (groupname) (rate(namedprocess_namegroup_read_bytes_total[$interval])))",
+          "hide": false,
+          "legendFormat": "read / {{groupname}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_OUSION_DEV SERVER}"
+          },
+          "editorMode": "code",
+          "expr": "topk($top_processes_count, sum by (groupname) (rate(namedprocess_namegroup_write_bytes_total[$interval])))",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "write / {{groupname}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Top Process by Disk IOPS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_OUSION_DEV SERVER}"
       },
       "fieldConfig": {
         "defaults": {
@@ -898,10 +1006,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 11,
-        "w": 12,
-        "x": 12,
-        "y": 27
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 38
       },
       "id": 9,
       "options": {
@@ -922,7 +1030,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "rate(node_network_receive_bytes_total[$interval])",
@@ -933,7 +1041,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUSR}"
+            "uid": "${DS_OUSION_DEV SERVER}"
           },
           "editorMode": "code",
           "expr": "rate(node_network_transmit_bytes_total[$interval])",
@@ -1025,8 +1133,8 @@
       },
       {
         "current": {
-          "text": "4",
-          "value": "4"
+          "text": "3",
+          "value": "3"
         },
         "name": "top_processes_count",
         "options": [
@@ -1041,12 +1149,12 @@
             "value": "2"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "3",
             "value": "3"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "4",
             "value": "4"
           },
@@ -1077,13 +1185,14 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Host Monitoring",
   "uid": "adlp4bp",
-  "version": 4,
-  "weekStart": ""
+  "version": 5,
+  "weekStart": "",
+  "id": null
 }
