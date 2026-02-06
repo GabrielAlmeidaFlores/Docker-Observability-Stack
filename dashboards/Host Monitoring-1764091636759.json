@@ -1,7 +1,7 @@
 {
   "__inputs": [
     {
-      "name": "DS_OUSION_DEV SERVER",
+      "name": "DS_PROMETHEUS",
       "label": "prometheus",
       "description": "",
       "type": "datasource",
@@ -60,7 +60,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -115,7 +115,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "time() - node_boot_time_seconds",
@@ -130,7 +130,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -184,7 +184,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "100 * (1 - (\n  node_memory_MemAvailable_bytes{instance=\"node-exporter:9100\"}\n  /\n  node_memory_MemTotal_bytes{instance=\"node-exporter:9100\"}\n))\n",
@@ -199,7 +199,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -253,7 +253,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "100 * (\n  1 -\n  (\n    sum(rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) \n    /\n    sum(rate(node_cpu_seconds_total[5m]))\n  )\n)\n",
@@ -268,7 +268,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -322,7 +322,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "100 *\n(\n  1 -\n  node_filesystem_free_bytes{mountpoint=\"/\", fstype!~\"tmpfs|overlay\"}\n  /\n  node_filesystem_size_bytes{mountpoint=\"/\", fstype!~\"tmpfs|overlay\"}\n)\n",
@@ -337,7 +337,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -421,7 +421,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "100 * (1 - avg(rate(node_cpu_seconds_total{mode=\"idle\"}[$interval])))",
@@ -436,7 +436,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -520,7 +520,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "topk(\n  $top_processes_count,\n  sum by (groupname) (rate(namedprocess_namegroup_cpu_seconds_total[$interval])) * 100\n  / scalar(count(node_cpu_seconds_total{mode=\"idle\"}))\n)\n",
@@ -535,7 +535,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -619,7 +619,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "100 * (\n  1 -\n  (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)\n)\n",
@@ -634,7 +634,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -718,7 +718,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "topk(\n  $top_processes_count,\n  namedprocess_namegroup_memory_bytes{memtype=\"resident\"} * 100\n    / scalar(node_memory_MemTotal_bytes)\n)\n",
@@ -733,7 +733,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -813,7 +813,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "rate(node_disk_reads_completed_total[$interval])",
@@ -824,7 +824,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "rate(node_disk_writes_completed_total[$interval])",
@@ -841,7 +841,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -921,7 +921,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "topk($top_processes_count, sum by (groupname) (rate(namedprocess_namegroup_read_bytes_total[$interval])))",
@@ -933,7 +933,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "topk($top_processes_count, sum by (groupname) (rate(namedprocess_namegroup_write_bytes_total[$interval])))",
@@ -950,7 +950,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_OUSION_DEV SERVER}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1030,7 +1030,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "rate(node_network_receive_bytes_total[$interval])",
@@ -1041,7 +1041,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_OUSION_DEV SERVER}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "rate(node_network_transmit_bytes_total[$interval])",
