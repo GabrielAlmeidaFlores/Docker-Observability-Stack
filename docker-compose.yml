@@ -81,7 +81,7 @@ services:
       - "--config.path=/config/process-exporter.yml"
       - "--procfs=/host/proc"
     expose:
-      - ".25."
+      - "9256"
     networks:
       monitoring:
         ipv4_address: 172.25.0.14
